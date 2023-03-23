@@ -1,0 +1,12 @@
+.gitignore
+.git
+.gitattributes
+.github/
+README.md
+tests/
+nbs/
+data/
+__pycache__/
+**/__pycache__
+.DS_Store
+**/.DS_Store
