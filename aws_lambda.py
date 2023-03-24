@@ -4,7 +4,7 @@ import numpy as  np
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from math import ceil
-from io_utils import encode_base64
+from .io_utils import encode_base64
 
 s3_client = boto3.client('s3')
 lambda_client = boto3.client('lambda', region_name='us-east-1')
