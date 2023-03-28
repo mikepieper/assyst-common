@@ -4,7 +4,7 @@ import logging
 import pickle
 import zlib
 from botocore.exceptions import ClientError
-from holidays import Any
+from typing import Any
 
 
 def encode_base64(x):
