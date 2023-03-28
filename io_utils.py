@@ -4,6 +4,7 @@ import logging
 import pickle
 import zlib
 from botocore.exceptions import ClientError
+from holidays import Any
 
 
 def encode_base64(x):
@@ -32,7 +33,7 @@ def uncompress(s):
     return s
 
 
-def load_s3_object(s3_client, bucket, key, encoding: str = None):
+def load_s3_object(s3_client: Any, bucket: str, key: str, encoding: str):
     logging.info(f"Loading object from s3://{bucket}/{key}")
     try:
         response = s3_client.get_object(Bucket=bucket, Key=key)["Body"].read()
