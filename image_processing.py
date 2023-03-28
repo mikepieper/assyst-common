@@ -38,3 +38,4 @@ def save_images_to_video(images: np.ndarray, outfile: str, fps=6):
     for frame in images:
         writer.write(cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
     writer.release()
+

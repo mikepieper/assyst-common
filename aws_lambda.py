@@ -40,4 +40,3 @@ def invoke_detector_once(function_name, clip):
     result = json.loads(response['Payload'].read())
     preds = np.array(result['body']['preds'], dtype=np.float32)
     return preds
-    
