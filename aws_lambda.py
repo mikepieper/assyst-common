@@ -4,7 +4,7 @@ import numpy as  np
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from math import ceil
-from .io_utils import compress
+from .io_utils import encode_base64
 
 s3_client = boto3.client('s3')
 lambda_client = boto3.client('lambda', region_name='us-east-1')
@@ -35,7 +35,7 @@ def invoke_detector_once(function_name, clip):
     response = lambda_client.invoke(
         FunctionName=function_name,
         InvocationType='RequestResponse',
-        Payload=json.dumps({"images": compress(clip)})
+        Payload=json.dumps({"images": encode_base64(clip)})
     )
     result = json.loads(response['Payload'].read())
     preds = np.array(result['body']['preds'], dtype=np.float32)
