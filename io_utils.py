@@ -70,7 +70,7 @@ def save_image_to_s3(s3_client, bucket, key, image, color_format='RGB'):
     # Save numpy image to s3 as jpg with cv2
     _, image = cv2.imencode(".jpg", image)
     image = image.tobytes()
-    s3_client.put_object(Body=image, Bucket=bucket, Key=key)
+    s3_client.put_object(Bucket=bucket, Key=key, Body=image)
 
 
 def load_combined_annotations(s3_client, bucket, key):
