@@ -40,7 +40,7 @@ def load_s3_object(s3_client: Any, bucket: str, key: str, encoding: str):
         response = s3_client.get_object(Bucket=bucket, Key=key)["Body"].read()
     except ClientError as e:
         logging.error(e)
-        return None
+        raise Exception(e)
     if encoding == "base64":
         return decode_base64(response)
     if encoding == "gz":
